@@ -1,0 +1,209 @@
+1.This keyword
+class Animal {
+
+  // overridden method
+  public void display(){
+    System.out.println("I am an animal");
+  }
+}
+
+class Dog extends Animal {
+
+  // overriding method
+  @Override
+  public void display(){
+    System.out.println("I am a dog");
+  }
+
+  public void printMessage(){
+
+    // this calls overriding method
+    display();
+
+    // this calls overridden method
+    super.display();
+  }
+}
+
+class Main {
+  public static void main(String[] args) {
+    Dog dog1 = new Dog();
+    dog1.printMessage();
+  }
+} 
+
+2. encapsulation with set and get method
+class Name {
+ 
+    private int age; // Private is using to hide the data
+ 
+    public int getAge() { return age; } // getter
+ 
+    public void setAge(int age)
+    {
+        this.age = age;
+    } // setter
+}
+ 
+class encap {
+    public static void main(String[] args)
+    {
+ 
+        Name n1 = new Name();
+ 
+        n1.setAge(19);
+ 
+        System.out.println("The age of the person is: "
+                           + n1.getAge());
+    }
+}
+
+3. super class with variables
+class Vehicle {
+    int maxSpeed = 120;
+}
+  
+// sub class Car extending vehicle
+class Car extends Vehicle {
+    int maxSpeed = 180;
+  
+    void display()
+    {
+        // print maxSpeed of base class (vehicle)
+        System.out.println("Maximum Speed: "
+                           + super.maxSpeed);
+    }
+}
+  
+// Driver Program
+class Test {
+    public static void main(String[] args)
+    {
+        Car small = new Car();
+        small.display();
+    }
+}
+ 4. super class with methods
+class Person {
+    void message()
+    {
+        System.out.println("This is person class\n");
+    }
+}
+// Subclass Student
+class Student extends Person {
+    void message()
+    {
+        System.out.println("This is student class");
+    }
+    // Note that display() is
+    // only in Student class
+    void display()
+    {
+        // will invoke or call current
+        // class message() method
+        message();
+  
+        // will invoke or call parent
+        // class message() method
+        super.message();
+    }
+}
+// Driver Program
+class Test {
+    public static void main(String args[])
+    {
+        Student s = new Student();
+  
+        // calling display() of Student
+        s.display();
+    }
+}
+5. super class with constructors
+class Person {
+    Person()
+    {
+        System.out.println("Person class Constructor");
+    }
+}
+  
+// subclass Student extending the Person class
+class Student extends Person {
+    Student()
+    {
+        // invoke or call parent class constructor
+        super();
+  
+        System.out.println("Student class Constructor");
+    }
+}
+  
+// Driver Program
+class Test {
+    public static void main(String[] args)
+    {
+        Student s = new Student();
+    }
+}
+
+6. final keyword variable (you make any variable as final, you cannot change the value of final variable(It will be constant).)
+
+class Bike9{  
+ final int speedlimit=90;//final variable  
+ void run(){  
+  speedlimit=400;  
+ }  
+ public static void main(String args[]){  
+ Bike9 obj=new  Bike9();  
+ obj.run();  
+ }  
+} (complie time error)
+
+7. final keyword method
+
+class Bike{  
+  final void run(){System.out.println("running");}  
+}  
+     
+class Honda extends Bike{  
+   void run(){System.out.println("running safely with 100kmph");}  
+     
+   public static void main(String args[]){  
+   Honda honda= new Honda();  
+   honda.run();  
+   }  
+}  (complie time error) (If you make any method as final, you cannot override it)
+
+
+8. final keyword class
+
+inal class Bike{}  
+  
+class Honda1 extends Bike{  
+  void run(){System.out.println("running safely with 100kmph");}  
+    
+  public static void main(String args[]){  
+  Honda1 honda= new Honda1();  
+  honda.run();  
+  }  
+}   (complie time error) (you cannot extend the class)
+
+9. exception handle 
+
+class Main {
+  public static void main(String[] args) {
+
+    try {
+
+      // code that generate exception
+      int divideByZero = 5 / 0;
+      System.out.println("Rest of code in try block");
+    }
+    
+    catch (ArithmeticException e) {
+      System.out.println("ArithmeticException => " + e.getMessage());
+    }
+  }
+}
+
+output:ArithmeticException => / by zero. 

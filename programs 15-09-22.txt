@@ -1,0 +1,321 @@
+1. Convert temperature from Fahrenheit to Celsius degree.
+
+public class Celsius  
+ {  
+   public static void main (String args[])  
+    { float Fahrenheit, Celsius;  
+          Fahrenheit = 43;  
+          Celsius  = ((Fahrenheit-32)*5)/9;  
+          System.out.println("Temperature in celsius is: "+Celsius);  
+    }}  
+
+
+
+2 .insert an element [specific position] into an array.
+
+import java.util.Scanner;
+public class Insert_Array 
+{
+    public static void main(String[] args) 
+    {
+        int n, pos, x;
+        Scanner s = new Scanner(System.in);
+        System.out.print("Enter no. of elements you want in array:");
+        n = s.nextInt();
+        int a[] = new int[n+1];
+        System.out.println("Enter all the elements:");
+        for(int i = 0; i < n; i++)
+        {
+            a[i] = s.nextInt();
+        }
+        System.out.print("Enter the position where you want to insert element:");
+        pos = s.nextInt();
+        System.out.print("Enter the element you want to insert:");
+        x = s.nextInt();
+        for(int i = (n-1); i >= (pos-1); i--)
+        {
+            a[i+1] = a[i];
+        }
+        a[pos-1] = x;
+        System.out.print("After inserting:");
+        for(int i = 0; i < n; i++)
+        {
+            System.out.print(a[i]+",");
+        }
+        System.out.print(a[n]);
+    }
+}
+
+
+3. common element in an array
+
+import java.util.Arrays; 
+public class Common {
+public static void main(String[] args) 
+    {
+      int[] array1 = {1, 2, 5, 5, 8, 9, 7, 10};
+      int[] array2 = {1, 0, 6, 15, 6, 4, 7, 0};
+ 
+       System.out.println("Array1 : "+Arrays.toString(array1));
+       System.out.println("Array2 : "+Arrays.toString(array2));
+ 
+      
+        for (int i = 0; i < array1.length; i++)
+        {
+            for (int j = 0; j < array2.length; j++)
+            {
+                if(array1[i] == (array2[j]))
+                {
+                 
+                 System.out.println("Common element is : "+(array1[i]));
+                 }
+            }
+        }
+ 
+    }
+}
+
+4.concatenate
+
+public class Exercise7 {
+
+    public static void main(String[] args)
+    {
+        String str1 = "idfc ";
+        String str2 = "batch 2";
+        
+        System.out.println("String 1: " + str1);
+        System.out.println("String 2: " + str2); 
+       
+
+        // Concatenate the two strings together.
+        String str3 = str1.concat(str2);
+
+        // Display the new String.
+        System.out.println("The concatenated string: " + str3);
+    }
+}
+
+
+
+5.reverse a string
+
+import java.io.*;
+import java.util.Scanner;
+  
+class GFG {
+    public static void main (String[] args) {
+        
+        String str= "idfc", nstr="";
+        char ch;
+        
+      System.out.print("Original word: ");
+      System.out.println("idfc"); //Example word
+        
+      for (int i=0; i<str.length(); i++)
+      {
+        ch= str.charAt(i); //extracts each character
+        nstr= ch+nstr; //adds each character in front of the existing string
+      }
+      System.out.println("Reversed word: "+ nstr);
+    }
+}
+ 
+
+
+	7. area of circle
+
+import java.util.Scanner;
+class AreaCalculation
+{
+	double area;
+	void circle(double r)
+	{
+	 area= (22*r*r)/7;
+	}
+}
+class AreaOfCircle extends AreaCalculation
+{
+   public static void main(String args[]) 
+    {   
+      Scanner s= new Scanner(System.in);
+      System.out.println("Enter the radius:");
+      double rad= s.nextDouble();      
+      AreaOfCircle  a=new AreaOfCircle();
+      a.circle(rad);
+      System.out.println("Area of Circle is: " + a.area);      
+   }
+ }
+
+8. Check given string is palindrome or not
+
+{
+    public static boolean isPalindrome(String str)
+    {
+        // Initializing an empty string to store the reverse
+        // of the original str
+        String rev = "";
+ 
+        // Initializing a new boolean variable for the
+        // answer
+        boolean ans = false;
+ 
+        for (int i = str.length() - 1; i >= 0; i--) {
+            rev = rev + str.charAt(i);
+        }
+ 
+        // Checking if both the strings are equal
+        if (str.equals(rev)) {
+            ans = true;
+        }
+        return ans;
+    }
+    public static void main(String[] args)
+    {
+        // Input string
+        String str = "mom";
+ 
+        // Convert the string to lowercase
+        str = str.toLowerCase();
+        boolean A = isPalindrome(str);
+        System.out.println(A);
+    }
+}
+
+9. calculator for switch case
+
+import java.util.Scanner;
+
+public class JavaExample {
+
+    public static void main(String[] args) {
+
+    	double num1, num2;
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter first number:");
+
+        num1 = scanner.nextDouble();
+        System.out.print("Enter second number:");
+        num2 = scanner.nextDouble();
+
+        System.out.print("Enter an operator (+, -, *, /): ");
+        char operator = scanner.next().charAt(0);
+
+        scanner.close();
+        double output;
+
+        switch(operator)
+        {
+            case '+':
+            	output = num1 + num2;
+                break;
+
+            case '-':
+            	output = num1 - num2;
+                break;
+
+            case '*':
+            	output = num1 * num2;
+                break;
+
+            case '/':
+            	output = num1 / num2;
+                break;
+
+            default:
+                System.out.printf("You have entered wrong operator");
+                return;
+        }
+
+        System.out.println(num1+" "+operator+" "+num2+": "+output);
+    }
+}
+
+10. Write a program to display factors of a Number
+
+public class Main {
+
+  public static void main(String[] args) {
+
+    // positive number
+    int number = 60;
+
+    System.out.print("Factors of " + number + " are: ");
+
+    // loop runs from 1 to 60
+    for (int i = 1; i <= number; ++i) {
+
+      // if number is divided by i
+      // i is the factor
+      if (number % i == 0) {
+        System.out.print(i + " ");
+      }
+    }
+  }
+}
+
+
+
+12. greatest number
+import java.util.Scanner;
+public class greatestnumber {
+
+    
+  public static void main(String[] args) {
+  Scanner in = new Scanner(System.in);
+   
+  System.out.print("Input the 1st number: ");
+  int num1 = in.nextInt();
+   
+  System.out.print("Input the 2nd number: ");
+  int num2 = in.nextInt();
+   
+  System.out.print("Input the 3rd number: ");
+  int num3 = in.nextInt();
+   
+   
+  if (num1 > num2)
+   if (num1 > num3)
+    System.out.println("The greatest: " + num1);
+   
+  if (num2 > num1)
+   if (num2 > num3)
+    System.out.println("The greatest: " + num2);
+   
+  if (num3 > num1)
+   if (num3 > num2)
+    System.out.println("The greatest: " + num3);
+ }
+}
+
+13. month
+import java.io.*;
+import java.util.*;
+
+class Main{
+
+    public static void main(String args[]){
+
+        int month, year;
+        month = 6;
+        year = 2011;
+        if((month==2) && ((year%4==0) || ((year%100==0)&&(year%400==0))))
+            System.out.println("Number of days is 29");
+
+        else if(month==2)
+            System.out.println("Number of days is 28");
+
+        else if(month==1 || month==3 || month==5 || month==7 || month==8 || month==10 || month==12)
+            System.out.println("Number of days is 31");
+
+        else
+            System.out.println("Number of days is 30");
+
+
+    }
+
+}
+
+
+
+
